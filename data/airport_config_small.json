@@ -1,0 +1,30 @@
+{
+    "name": "Newport Beach Regional Airport",
+    "iata_code": "NPB",
+    "scenario": "small",
+    "gates": [
+        {"id": "A1", "size": "S"},
+        {"id": "A2", "size": "S"},
+        {"id": "A3", "size": "S"},
+        {"id": "B1", "size": "M"},
+        {"id": "B2", "size": "M"},
+        {"id": "C1", "size": "L"}
+    ],
+    "resources": {
+        "ramp_crews": 4,
+        "fuel_trucks": 2,
+        "baggage_carts": 6,
+        "pushback_tugs": 2,
+        "maintenance_techs": 2,
+        "cleaning_crews": 3,
+        "catering_crews": 2
+    },
+    "operations": {
+        "first_departure_hour": 6,
+        "last_arrival_hour": 22
+    },
+    "crew_shifts": [
+        {"name": "morning",   "start": "06:00", "end": "14:00", "ramp_crews": 3},
+        {"name": "afternoon", "start": "14:00", "end": "22:00", "ramp_crews": 2}
+    ]
+}
