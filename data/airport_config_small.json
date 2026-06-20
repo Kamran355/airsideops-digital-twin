@@ -1,6 +1,7 @@
 {
-    "name": "Newport Beach Regional Airport",
-    "iata_code": "NPB",
+    "name": "Urbana Regional Airport",
+    "iata_code": "UBN",
+    "iata_code": "KUBN"
     "scenario": "small",
     "gates": [
         {"id": "A1", "size": "S"},
