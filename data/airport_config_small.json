@@ -11,6 +11,7 @@
         {"id": "B2", "size": "M"},
         {"id": "C1", "size": "L"}
     ],
+
     "resources": {
         "ramp_crews": 4,
         "fuel_trucks": 2,
