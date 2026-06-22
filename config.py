@@ -11,7 +11,8 @@ DATA_DIR = BASE_DIR / "data"
 
 SMALL_AIRPORT_CONFIG = DATA_DIR / "airport_config_small.json"
 MEDIUM_AIRPORT_CONFIG = DATA_DIR / "airport_config_medium.json"
-FLIGHT_SCHEDULE = DATA_DIR / "sample_flight)schedule.csv"
+FLIGHT_SCHEDULE_SMALL = DATA_DIR / "flight_schedule_small.csv"
+FLIGHT_SCHEDULE_MEDIUM = DATA_DIR / "flight_schedule_medium.csv"
 
 
 #
@@ -31,6 +32,8 @@ MAX_REPS = 1000
 #   triangular    -> (min, mode, max)
 #   normal        -> (mean, std_dev)
 #
+
+# TODO: durations are flat right now regardless of aircraft size - Revisit once Flight/Aircraft classes exist and can carry a size category
 
 TASK_DURATIONS = {
     "deplaning":         {"dist": "triangular", "params": (15, 22, 35)},
@@ -81,12 +84,34 @@ DELAY_WEIGHT_HIGH_PAX   = 1.5   # TODO: define threshold for "high pax"
 #
 
 AIRCRAFT_GATE_COMPAT = {
-    "CRJ900": ["S", "M", "L"],
-    "E175":   ["S", "M", "L"],
-    "B737":   ["M", "L"],
-    "A320":   ["M", "L"],
-    "B757":   ["L"],
-    "B767":   ["L"],
+    # regional jets
+    "CRJ2":  ["S", "M", "L"],
+    "CRJ7":  ["S", "M", "L"],
+    "CRJ9":  ["S", "M", "L"],
+    "E170":  ["S", "M", "L"],
+    "E75L":  ["S", "M", "L"],
+
+    # narrowbody mainline
+    "A319":  ["M", "L"],
+    "A320":  ["M", "L"],
+    "A321":  ["M", "L"],
+    "A20N":  ["M", "L"],
+    "A21N":  ["M", "L"],
+    "BCS3":  ["M", "L"],   # A220-300, Breeze's plane
+    "B737":  ["M", "L"],
+    "B738":  ["M", "L"],
+    "B739":  ["M", "L"],
+    "B38M":  ["M", "L"],
+    "B39M":  ["M", "L"],
+
+    # biggest thing the narrowbody gates handle, can also slot into a heavy
+    # gate if that's all that's open
+    "B752":  ["L", "H"],
+
+    # widebodies - NPB only, dedicated heavy gates (Terminal D)
+    "B77W":  ["H"],
+    "B789":  ["H"],
+    "A333":  ["H"],
 }
 # TODO: increase number of supported aircraft
 # TODO: define aircraft using ICAO code
